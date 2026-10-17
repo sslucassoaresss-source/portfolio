@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lucas Soares · Desenvolvedor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Lucas Soares, desenvolvedor full-stack em São Paulo. Sistemas web sob medida que funcionam no celular, no tablet e no computador.">
+<meta property="og:title" content="Lucas Soares · Desenvolvedor full-stack">
+<meta property="og:description" content="Sistemas web sob medida: gestão de vendas, estoque, finanças e sites com IA. Veja os vídeos de demonstração.">
+<meta property="og:image" content="img/compartilhar.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0F3D2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap">
+<style>
+/* Conceito: "estúdio ao vivo". Cada projeto é um monitor de TV com a luz de
+   tally verde acesa (no switcher, verde = preview: pronto para ir ao ar).
+   Texto alinhado à esquerda, uma coluna de leitura e monitores grandes. */
+:root{
+  --floresta:#0F3D2E;   /* faixas escuras, títulos */
+  --verde:#1F7A4D;      /* botões, links */
+  --menta:#3DDC97;      /* tally, detalhes */
+  --papel:#F2F7F4;      /* fundo da página */
+  --cartao:#FFFFFF;
+  --tinta:#10231B;      /* texto principal */
+  --musgo:#56685F;      /* texto secundário */
+  --linha:#D5E3DB;
+  --monitor:#0E1512;    /* moldura dos monitores */
+  --faixa-texto:#E8F4EE;
+  --fonte:"Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --raio:14px;
+  --largura:1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#0B1712; --cartao:#11231B; --tinta:#E4F0EA; --musgo:#9DB3A8;
+    --linha:#21382D; --verde:#3DDC97; --floresta:#0A2A1F; --monitor:#050907;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#0B1712; --cartao:#11231B; --tinta:#E4F0EA; --musgo:#9DB3A8;
+  --linha:#21382D; --verde:#3DDC97; --floresta:#0A2A1F; --monitor:#050907;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--fonte);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:var(--verde)}
+:focus-visible{outline:3px solid var(--menta);outline-offset:3px;border-radius:6px}
+.so-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.miolo{max-width:var(--largura);margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+
+/* ---------- Topo ---------- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--floresta)}
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--floresta);color:var(--faixa-texto)}
+.topo .miolo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.marca{font-weight:800;font-size:1.05rem;letter-spacing:-.01em;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
+.tally{width:10px;height:10px;border-radius:50%;background:var(--menta);box-shadow:0 0 0 3px rgba(61,220,151,.22),0 0 14px rgba(61,220,151,.7);flex:none}
+.menu{display:flex;gap:22px;align-items:center}
+.menu a{color:var(--faixa-texto);text-decoration:none;font-weight:500;font-size:.95rem}
+.menu a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;font:inherit;font-weight:700;font-size:.97rem;text-decoration:none;cursor:pointer;border:2px solid transparent;transition:transform .15s ease, background .15s ease}
+.botao:active{transform:translateY(1px)}
+.botao-menta{background:var(--menta);color:#06261A}
+.botao-menta:hover{background:#5BE6A9}
+.botao-contorno{border-color:currentColor;color:inherit;background:transparent}
+.topo .botao{min-height:40px;padding:0 16px;font-size:.9rem}
+@media (max-width:760px){ .menu a:not(.botao){display:none} }
+
+/* ---------- Abertura ---------- */
+.abertura{background:var(--floresta);color:var(--faixa-texto);overflow:hidden}
+.abertura .miolo{display:grid;grid-template-columns:auto minmax(0,1fr);gap:48px;align-items:center;padding-block:72px 80px}
+.abertura-texto{min-width:0;max-width:640px}
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.95rem;color:var(--menta);margin:0 0 26px}
+.abertura h1{font-size:clamp(2.4rem,5.2vw,4.4rem);line-height:.98;letter-spacing:-.035em;font-weight:800;color:#fff;margin:0 0 22px;text-wrap:balance}
+.abertura h1 span{display:block;font-weight:500;color:var(--faixa-texto);font-size:.52em;letter-spacing:-.02em;margin-top:14px;line-height:1.15}
+.abertura p.lead{font-size:1.15rem;max-width:44ch;margin:0 0 32px;color:#CFE3D9}
+.acoes{display:flex;flex-wrap:wrap;gap:12px}
+.foto{margin:0;width:240px}
+.foto img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:20px;border:4px solid rgba(61,220,151,.35)}
+@media (max-width:760px){
+  .abertura .miolo{grid-template-columns:1fr;gap:26px;padding-block:44px 56px}
+  .foto{width:150px}
+}
+
+/* ---------- Seções ---------- */
+.secao{padding-block:96px}
+.secao-cabeca{max-width:62ch;margin-bottom:56px}
+.secao h2{font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin:0 0 14px;color:var(--tinta);text-wrap:balance}
+.secao-cabeca p{color:var(--musgo);font-size:1.1rem;margin:0}
+
+/* ---------- Projetos (monitores) ---------- */
+.projetos{display:grid;gap:110px}
+.projeto{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:center}
+.projeto:nth-child(even) .tela{order:2}
+.projeto-texto{min-width:0}
+.projeto h3{font-size:clamp(1.6rem,2.6vw,2.15rem);line-height:1.1;letter-spacing:-.025em;font-weight:800;margin:0 0 6px}
+.projeto .para{color:var(--verde);font-weight:600;margin:0 0 18px}
+.projeto .problema{margin:0 0 18px;color:var(--tinta)}
+.projeto ul{margin:0 0 22px;padding:0;list-style:none;display:grid;gap:9px}
+.projeto li{position:relative;padding-left:22px;color:var(--musgo)}
+.projeto li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--menta)}
+.projeto li strong{color:var(--tinta);font-weight:600}
+.projeto .tecnologias{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.projeto .tecnologias li{padding:5px 12px;border:1px solid var(--linha);border-radius:999px;font-size:.84rem;font-weight:500;color:var(--musgo);background:var(--cartao)}
+.projeto .tecnologias li::before{content:none}
+.links{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.links a{font-weight:700;text-underline-offset:4px}
+.nota{font-size:.88rem;color:var(--musgo);margin:14px 0 0;max-width:46ch}
+.credenciais{display:block;margin-top:4px;font-variant-numeric:tabular-nums;user-select:all}
+
+/* Monitor: moldura escura, faixa inferior com tally e duração */
+.tela{min-width:0;margin:0}
+.monitor{background:var(--monitor);border-radius:18px;padding:10px 10px 0;box-shadow:0 30px 60px -30px rgba(6,38,26,.55)}
+.monitor video{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:9px;background:#000}
+.monitor-rodape{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 6px 12px;color:#9FB8AC;font-size:.84rem;font-variant-numeric:tabular-nums}
+.monitor-rodape .ao-vivo{display:flex;align-items:center;gap:9px;font-weight:600;color:#D7E9E0}
+.controle{background:none;border:1px solid #2C4238;color:#D7E9E0;border-radius:999px;font:inherit;font-size:.82rem;font-weight:600;padding:5px 12px;min-height:32px;cursor:pointer}
+.controle:hover{border-color:var(--menta);color:#fff}
+/* Celular (Casa em Dia) */
+.tela-celular{display:flex;justify-content:center}
+.tela-celular .monitor{width:min(330px,100%);border-radius:44px;padding:12px 12px 0}
+.tela-celular video{aspect-ratio:780/1688;border-radius:32px}
+.projeto-celular{grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}
+
+@media (max-width:900px){
+  .projeto,.projeto-celular{grid-template-columns:1fr;gap:28px}
+  .projeto:nth-child(even) .tela{order:0}
+  .projetos{gap:80px}
+  .secao{padding-block:72px}
+}
+
+/* ---------- Sobre ---------- */
+.sobre{background:var(--cartao);border-block:1px solid var(--linha)}
+.sobre .miolo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.sobre p{margin:0 0 16px;max-width:60ch}
+.trajeto{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--linha)}
+.trajeto li{position:relative;padding:0 0 26px 26px}
+.trajeto li::before{content:"";position:absolute;left:-7px;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--cartao);border:2px solid var(--musgo)}
+.trajeto li.agora::before{background:var(--menta);border-color:var(--menta);box-shadow:0 0 0 4px rgba(61,220,151,.2)}
+.trajeto .quando{display:block;font-size:.88rem;color:var(--musgo);font-weight:600}
+.trajeto .oque{display:block;font-weight:700;font-size:1.06rem}
+.trajeto .detalhe{display:block;color:var(--musgo);font-size:.95rem}
+@media (max-width:860px){ .sobre .miolo{grid-template-columns:1fr;gap:36px} }
+
+/* ---------- Serviços ---------- */
+.servicos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--tinta)}
+.servico{padding:26px 28px 6px 0}
+.servico + .servico{padding-left:28px;border-left:1px solid var(--linha)}
+.servico h3{font-size:1.25rem;letter-spacing:-.015em;margin:0 0 8px}
+.servico p{margin:0;color:var(--musgo)}
+@media (max-width:860px){
+  .servicos{grid-template-columns:1fr}
+  .servico,.servico + .servico{padding:22px 0;border-left:0;border-bottom:1px solid var(--linha)}
+}
+
+/* ---------- Contato ---------- */
+.contato{background:var(--floresta);color:var(--faixa-texto)}
+.contato .miolo{padding-block:96px}
+.contato h2{color:#fff;font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:-.035em;line-height:1.02;margin:0 0 18px;max-width:18ch}
+.contato p{max-width:52ch;color:#CFE3D9;font-size:1.1rem;margin:0 0 30px}
+.canais{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:40px}
+.canal{border:1px solid #2A5644;border-radius:var(--raio);padding:18px 20px;min-width:0}
+.canal .rotulo{display:block;font-size:.88rem;color:#9FC4B2;font-weight:600;margin-bottom:4px}
+.canal .valor{display:block;color:#fff;font-weight:700;font-size:1.05rem;word-break:break-word;user-select:all}
+.canal a{color:#fff}
+.copiar{margin-top:10px;background:none;border:1px solid #2F6650;color:#CFE3D9;border-radius:999px;font:inherit;font-size:.82rem;font-weight:600;padding:5px 12px;cursor:pointer}
+.copiar:hover{border-color:var(--menta);color:#fff}
+@media (max-width:860px){ .canais{grid-template-columns:1fr} }
+.rodape{background:var(--floresta);color:#8FB3A2;font-size:.88rem;border-top:1px solid #1E4A3A}
+.rodape .miolo{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* Entrada: um único momento, só no carregamento da abertura */
+@media (prefers-reduced-motion: no-preference){
+  .abertura-texto > *{animation:entra .7s cubic-bezier(.2,.7,.2,1) both}
+  .abertura-texto > :nth-child(2){animation-delay:.08s}
+  .abertura-texto > :nth-child(3){animation-delay:.16s}
+  .abertura-texto > :nth-child(4){animation-delay:.24s}
+  .tally{animation:pisca 2.4s ease-in-out infinite}
+}
+@keyframes entra{from{transform:translateY(14px);opacity:.001}to{transform:none;opacity:1}}
+@keyframes pisca{50%{box-shadow:0 0 0 3px rgba(61,220,151,.1),0 0 6px rgba(61,220,151,.4)}}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="miolo">
+    <a class="marca" href="#inicio"><span class="tally" aria-hidden="true"></span>Lucas Soares</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#projetos">Projetos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a class="botao botao-menta" href="https://wa.me/5511976748723?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20portf%C3%B3lio%20e%20queria%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="abertura" aria-labelledby="titulo">
+  <div class="miolo">
+    <figure class="foto">
+      <img src="img/lucas.webp" width="800" height="1000" alt="Foto de Lucas Soares ao ar livre, com fundo de árvores verdes">
+    </figure>
+    <div class="abertura-texto">
+      <p class="status"><span class="tally" aria-hidden="true"></span>Disponível para trabalho remoto</p>
+      <h1 id="titulo">Olá, eu sou o Lucas. <span>Desenvolvedor full&#8209;stack, de São Paulo.</span></h1>
+      <p class="lead">Passei seis anos nos bastidores da TV ao vivo. Hoje desenvolvo sistemas web que tiram pequenos negócios da planilha e funcionam bem no celular, no tablet e no computador.</p>
+      <div class="acoes">
+        <a class="botao botao-menta" href="#projetos">Ver os projetos</a>
+        <a class="botao botao-contorno" href="https://wa.me/5511976748723?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20portf%C3%B3lio%20e%20queria%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Conversar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="secao" id="projetos" aria-labelledby="titulo-projetos">
+  <div class="miolo">
+    <div class="secao-cabeca">
+      <h2 id="titulo-projetos">O que eu já construí</h2>
+      <p>Todos estes projetos estão em uso. Gravei um vídeo de cada um mostrando o funcionamento, com dados fictícios para proteger quem os utiliza no dia a dia.</p>
+    </div>
+
+    <div class="projetos">
+
+      <article class="projeto" aria-labelledby="p1">
+        <figure class="tela">
+          <div class="monitor">
+            <video muted loop playsinline preload="none" poster="img/poster-planilha-inteligente.webp" aria-label="Demonstração do Planilha Inteligente: dashboard, clientes, rotas com arrastar e registro de visita">
+              <source src="videos/planilha-inteligente.mp4" type="video/mp4">
+            </video>
+            <div class="monitor-rodape">
+              <span class="ao-vivo"><span class="tally" aria-hidden="true"></span>Planilha Inteligente</span>
+              <span>1min33</span>
+              <button class="controle" type="button" aria-label="Pausar o vídeo do Planilha Inteligente">Pausar</button>
+            </div>
+          </div>
+        </figure>
+        <div class="projeto-texto">
+          <h3 id="p1">Planilha Inteligente</h3>
+          <p class="para">Rotas, visitas e comissões para representante comercial</p>
+          <p class="problema">Desenvolvi para um representante comercial que visita mais de 150 lojas e controlava tudo em planilhas e no WhatsApp. Hoje ele monta a rota do dia, registra a venda durante a visita e acompanha a comissão do mês em tempo real.</p>
+          <ul>
+            <li><strong>Rotas por cidade</strong>, com várias rotas na mesma cidade e ordem de visita ajustada arrastando os clientes</li>
+            <li><strong>Visita com várias marcas</strong>, cada uma com a sua comissão, e o desconto do cliente aplicado automaticamente</li>
+            <li><strong>Calendário do mês</strong> e dashboard com vendas por dia</li>
+          </ul>
+          <ul class="tecnologias" aria-label="Tecnologias">
+            <li>JavaScript</li><li>Supabase</li><li>RLS multiusuário</li><li>PWA</li><li>Vercel</li>
+          </ul>
+          <div class="links">
+            <a href="https://planilha-inteligente-liart.vercel.app" target="_blank" rel="noopener">Testar a demo</a>
+            <a href="https://github.com/sslucassoaresss-source/planilha-inteligente" target="_blank" rel="noopener">Ver o código</a>
+          </div>
+          <p class="nota">Login da demo:<span class="credenciais">demo@planilhainteligente.com · Demo2026!</span></p>
+        </div>
+      </article>
+
+      <article class="projeto" aria-labelledby="p2">
+        <figure class="tela">
+          <div class="monitor">
+            <video muted loop playsinline preload="none" poster="img/poster-estoque-inteligente.webp" aria-label="Demonstração do Estoque Inteligente: estoque com fotos e QR Code, consignados, orçamentos, vendas e estorno">
+              <source src="videos/estoque-inteligente.mp4" type="video/mp4">
+            </video>
+            <div class="monitor-rodape">
+              <span class="ao-vivo"><span class="tally" aria-hidden="true"></span>Estoque Inteligente</span>
+              <span>1min37</span>
+              <button class="controle" type="button" aria-label="Pausar o vídeo do Estoque Inteligente">Pausar</button>
+            </div>
+          </div>
+        </figure>
+        <div class="projeto-texto">
+          <h3 id="p2">Estoque Inteligente</h3>
+          <p class="para">Estoque, vendas e consignados para uma joalheria</p>
+          <p class="problema">Foi com este sistema que aprendi a programar. Uma joalheria controlava peças, consignados e orçamentos em cadernos, e fui aprendendo cada tecnologia conforme o projeto exigia. Hoje ele é usado diariamente na loja.</p>
+          <ul>
+            <li><strong>Cada peça com foto e QR Code</strong>, com entrada, saída e venda que atualizam o estoque automaticamente</li>
+            <li><strong>Orçamento vira venda</strong> em um clique, e uma venda errada pode ser estornada</li>
+            <li><strong>Relatório em Excel</strong> do período, com uma aba para cada área</li>
+          </ul>
+          <ul class="tecnologias" aria-label="Tecnologias">
+            <li>JavaScript</li><li>Supabase Auth</li><li>Storage</li><li>Realtime</li><li>PWA</li>
+          </ul>
+          <p class="nota">Sistema de cliente, sem demo pública. No vídeo ele aparece com uma marca fictícia, porque é white-label: troca nome, logo e cores para cada cliente.</p>
+        </div>
+      </article>
+
+      <article class="projeto projeto-celular" aria-labelledby="p3">
+        <figure class="tela tela-celular">
+          <div class="monitor">
+            <video muted loop playsinline preload="none" poster="img/poster-casa-em-dia.webp" aria-label="Demonstração do Casa em Dia no celular: painel do mês, lançamento de gasto e regra de permissão entre o casal">
+              <source src="videos/casa-em-dia.mp4" type="video/mp4">
+            </video>
+            <div class="monitor-rodape">
+              <span class="ao-vivo"><span class="tally" aria-hidden="true"></span>Casa em Dia</span>
+              <span>1min49</span>
+              <button class="controle" type="button" aria-label="Pausar o vídeo do Casa em Dia">Pausar</button>
+            </div>
+          </div>
+        </figure>
+        <div class="projeto-texto">
+          <h3 id="p3">Casa em Dia</h3>
+          <p class="para">As finanças do casal num app de celular</p>
+          <p class="problema">Criei para organizar as finanças da minha própria casa, substituindo uma planilha que já não atendia. Cada pessoa registra os próprios gastos, e o app distribui o saldo do mês entre dívidas, metas e lazer, mostrando quanto cada um contribuiu com as contas da casa.</p>
+          <ul>
+            <li><strong>Permissão no banco de dados</strong>: gastos pessoais só podem ser editados por quem os lançou; os do casal, pelos dois</li>
+            <li><strong>Cartão de crédito e dívidas</strong>, com parcelas lançadas automaticamente e plano de quitação</li>
+            <li><strong>Gráficos desenhados à mão</strong> em SVG, sem biblioteca, no tema claro e escuro</li>
+          </ul>
+          <ul class="tecnologias" aria-label="Tecnologias">
+            <li>ES Modules</li><li>Supabase</li><li>Políticas RLS</li><li>PWA instalável</li>
+          </ul>
+          <p class="nota">App de uso pessoal, sem demo pública. O casal do vídeo é fictício.</p>
+        </div>
+      </article>
+
+      <article class="projeto" aria-labelledby="p4">
+        <figure class="tela">
+          <div class="monitor">
+            <video muted loop playsinline preload="none" poster="img/poster-fervo-arquitetura.webp" aria-label="Demonstração do site da Fervo Arquitetura: galeria filtrável, perguntas frequentes e assistente com inteligência artificial">
+              <source src="videos/fervo-arquitetura.mp4" type="video/mp4">
+            </video>
+            <div class="monitor-rodape">
+              <span class="ao-vivo"><span class="tally" aria-hidden="true"></span>Fervo Arquitetura</span>
+              <span>1min04</span>
+              <button class="controle" type="button" aria-label="Pausar o vídeo da Fervo Arquitetura">Pausar</button>
+            </div>
+          </div>
+        </figure>
+        <div class="projeto-texto">
+          <h3 id="p4">Fervo Arquitetura</h3>
+          <p class="para">Site de escritório de arquitetura com assistente de IA</p>
+          <p class="problema">Desenvolvi para um escritório de arquitetura. Além de apresentar os projetos, o site tem um assistente com IA que conversa com os visitantes, entende o que cada pessoa quer construir e encaminha o contato para o WhatsApp do arquiteto com um resumo pronto.</p>
+          <ul>
+            <li><strong>Assistente com IA</strong> (Google Gemini) que faz as perguntas certas antes de passar o contato</li>
+            <li><strong>Chave da IA protegida</strong> numa função no servidor, nunca exposta no navegador</li>
+            <li><strong>Galeria filtrável</strong> com projetos em tela cheia e perguntas frequentes</li>
+          </ul>
+          <ul class="tecnologias" aria-label="Tecnologias">
+            <li>HTML e CSS</li><li>JavaScript</li><li>Função serverless</li><li>Gemini API</li>
+          </ul>
+          <div class="links">
+            <a href="https://fervo-arquitetura.vercel.app" target="_blank" rel="noopener">Visitar o site</a>
+          </div>
+          <p class="nota">No vídeo, as respostas do assistente são encenadas.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="secao sobre" id="sobre" aria-labelledby="titulo-sobre">
+  <div class="miolo">
+    <div>
+      <h2 id="titulo-sobre">Da TV ao vivo para o código</h2>
+      <p>Trabalhei seis anos com TV ao vivo, cuidando do áudio e operando câmera. Lá aprendi que não há espaço para improviso: tudo precisa estar testado antes de entrar no ar.</p>
+      <p>Comecei a programar para ajudar uma joalheria a trocar os cadernos por um sistema, e não parei mais. Aprendo cada tecnologia nova resolvendo problemas reais, e gosto de entender como o cliente trabalha antes de escrever a primeira linha de código.</p>
+      <p>Hoje uso JavaScript, React, Node.js e Supabase. Tenho empresa constituída, emito nota fiscal e posso trabalhar como PJ.</p>
+    </div>
+    <ol class="trajeto" aria-label="Trajetória">
+      <li><span class="quando">TV ao vivo</span><span class="oque">Áudio e câmera</span><span class="detalhe">TV Globo, Endemol Shine e Teleimage</span></li>
+      <li><span class="quando">Primeiro sistema</span><span class="oque">Estoque Inteligente</span><span class="detalhe">Aprendi programação construindo o sistema de uma joalheria</span></li>
+      <li><span class="quando">Primeiro SaaS</span><span class="oque">Planilha Inteligente</span><span class="detalhe">Rotas e vendas, com cada usuário vendo só os próprios dados</span></li>
+      <li><span class="quando">Primeiro site com IA</span><span class="oque">Fervo Arquitetura</span><span class="detalhe">Assistente que conversa com o cliente e passa o contato pronto</span></li>
+      <li><span class="quando">Projeto pessoal</span><span class="oque">Casa em Dia</span><span class="detalhe">App de finanças pessoais que substituiu uma planilha</span></li>
+      <li class="agora"><span class="quando">Hoje</span><span class="oque">Desenvolvedor full-stack</span><span class="detalhe">Aberto a projetos freelance e a vagas remotas</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="secao" id="servicos" aria-labelledby="titulo-servicos">
+  <div class="miolo">
+    <div class="secao-cabeca">
+      <h2 id="titulo-servicos">Como posso te ajudar</h2>
+      <p>Para empresas que dependem de planilhas e grupos de WhatsApp para se organizar, ou que ainda não têm um site que trabalhe por elas.</p>
+    </div>
+    <div class="servicos">
+      <div class="servico">
+        <h3>Sistemas sob medida</h3>
+        <p>Estoque, vendas, rotas ou finanças, do jeito que o seu negócio já funciona. Com login, permissões por usuário e relatórios prontos.</p>
+      </div>
+      <div class="servico">
+        <h3>Sites institucionais</h3>
+        <p>Rápidos e bonitos no celular, com galeria, perguntas frequentes e, se fizer sentido, um assistente com IA para atender quem chega.</p>
+      </div>
+      <div class="servico">
+        <h3>Cartão digital</h3>
+        <p>Uma página com seus contatos, redes e serviços, para enviar pelo WhatsApp ou imprimir em um QR Code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contato" id="contato" aria-labelledby="titulo-contato">
+  <div class="miolo">
+    <h2 id="titulo-contato">Vamos conversar?</h2>
+    <p>Seja uma vaga, um projeto freelance ou uma ideia que ainda não saiu do papel, entre em contato pelo WhatsApp. Respondo rapidamente.</p>
+    <a class="botao botao-menta" href="https://wa.me/5511976748723?text=Ol%C3%A1%2C%20Lucas!%20Vi%20seu%20portf%C3%B3lio%20e%20queria%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    <div class="canais">
+      <div class="canal">
+        <span class="rotulo">WhatsApp</span>
+        <span class="valor">(11) 97674-8723</span>
+        <button class="copiar" type="button" data-copiar="11976748723">Copiar número</button>
+      </div>
+      <div class="canal">
+        <span class="rotulo">E-mail</span>
+        <span class="valor">sslucassoares@gmail.com</span>
+        <button class="copiar" type="button" data-copiar="sslucassoares@gmail.com">Copiar e-mail</button>
+      </div>
+      <div class="canal">
+        <span class="rotulo">GitHub</span>
+        <span class="valor"><a href="https://github.com/sslucassoaresss-source" target="_blank" rel="noopener">sslucassoaresss-source</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="miolo">
+    <span>Lucas Soares, desenvolvedor full-stack. São Paulo, atendimento remoto.</span>
+    <span>Este site também foi desenvolvido por mim, em HTML, CSS e JavaScript.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduzir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var videos = Array.prototype.slice.call(document.querySelectorAll('.monitor video'));
+
+  function rotulo(botao, video) {
+    var nome = botao.getAttribute('aria-label').replace(/^(Pausar|Assistir) o vídeo /, '');
+    botao.textContent = video.paused ? 'Assistir' : 'Pausar';
+    botao.setAttribute('aria-label', (video.paused ? 'Assistir' : 'Pausar') + ' o vídeo ' + nome);
+  }
+
+  videos.forEach(function (video) {
+    var botao = video.parentElement.querySelector('.controle');
+    video.dataset.pausadoPelaPessoa = reduzir ? 'sim' : '';
+    rotulo(botao, video);
+    botao.addEventListener('click', function () {
+      if (video.paused) { video.dataset.pausadoPelaPessoa = ''; video.play().catch(function () {}); }
+      else { video.dataset.pausadoPelaPessoa = 'sim'; video.pause(); }
+    });
+    video.addEventListener('click', function () { botao.click(); });
+    video.addEventListener('play', function () { rotulo(botao, video); });
+    video.addEventListener('pause', function () { rotulo(botao, video); });
+  });
+
+  // Toca só o vídeo que está na tela (economiza internet e bateria)
+  if ('IntersectionObserver' in window) {
+    var observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting && e.intersectionRatio > 0.35) {
+          if (!v.dataset.pausadoPelaPessoa) v.play().catch(function () {});
+        } else if (!v.paused) {
+          v.pause();
+          v.dataset.pausadoPelaPessoa = v.dataset.pausadoPelaPessoa || '';
+        }
+      });
+    }, { threshold: [0, 0.35, 0.6] });
+    videos.forEach(function (v) { observador.observe(v); });
+  }
+
+  // Copiar número e e-mail
+  document.querySelectorAll('.copiar').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var texto = b.getAttribute('data-copiar');
+      var original = b.textContent;
+      var ok = function () { b.textContent = 'Copiado'; setTimeout(function () { b.textContent = original; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(texto).then(ok).catch(function () { selecionar(b); });
+      } else { selecionar(b); }
+    });
+  });
+  function selecionar(b) {
+    var alvo = b.parentElement.querySelector('.valor');
+    var r = document.createRange(); r.selectNodeContents(alvo);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+})();
+</script>
+</body>
+</html>
