@@ -52,6 +52,7 @@ body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--fonte
 img,video{max-width:100%;display:block}
 a{color:var(--verde)}
 :focus-visible{outline:3px solid var(--menta);outline-offset:3px;border-radius:6px}
+.sem-quebra{white-space:nowrap}
 .so-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 .miolo{max-width:var(--largura);margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
@@ -212,7 +213,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     </figure>
     <div class="abertura-texto">
       <p class="status"><span class="tally" aria-hidden="true"></span>Disponível para trabalho remoto</p>
-      <h1 id="titulo">Olá, eu sou o Lucas. <span>Desenvolvedor full&#8209;stack, de São Paulo.</span></h1>
+      <h1 id="titulo">Olá, eu sou o Lucas. <span>Desenvolvedor <span class="sem-quebra">full-stack</span>, de São Paulo.</span></h1>
       <p class="lead">Passei seis anos nos bastidores da TV ao vivo. Hoje desenvolvo sistemas web que tiram pequenos negócios da planilha e funcionam bem no celular, no tablet e no computador.</p>
       <div class="acoes">
         <a class="botao botao-menta" href="#projetos">Ver os projetos</a>
