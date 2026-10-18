@@ -13,4 +13,4 @@ Os vídeos de demonstração usam dados fictícios.
 
 ## Contato
 - WhatsApp: (11) 97674-8723
-- E-mail: sslucassoares@gmail.com
+- E-mail: sslucassoares.s.s@icloud.com
